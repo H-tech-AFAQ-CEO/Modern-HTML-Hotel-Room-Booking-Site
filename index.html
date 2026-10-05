@@ -110,7 +110,7 @@ section{padding:clamp(4.5rem,10vw,8.5rem) 0}
 /* ==========================================================
    5. HERO — autoplay background gallery + booking bar
    ========================================================== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#1b1b1b;overflow:hidden;padding:calc(var(--nav-h) + 2rem) 0 8rem}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#1b1b1b;overflow:hidden;padding:calc(var(--nav-h) + 2rem) 0 11rem}
 .hero-slides{position:absolute;inset:0}
 .hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.07);transition:opacity 1.8s ease,transform 9s ease-out}
 .hero-slides img.active{opacity:1;transform:scale(1)}
@@ -120,17 +120,30 @@ section{padding:clamp(4.5rem,10vw,8.5rem) 0}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
 .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.7)}
 .hero .btn-ghost:hover{background:#fff;color:var(--ink)}
-.hero-dots{position:absolute;z-index:3;left:50%;bottom:7.6rem;transform:translateX(-50%);display:flex;gap:.55rem}
+.hero-dots{position:absolute;z-index:3;left:50%;bottom:9.8rem;transform:translateX(-50%);display:flex;gap:.55rem}
 .hero-dots button{width:26px;height:2px;border:0;padding:0;background:rgba(255,255,255,.4);cursor:pointer}
 .hero-dots button[aria-current="true"]{background:#fff}
-.scroll-hint{position:absolute;z-index:3;left:2rem;bottom:2rem;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.8}
+.scroll-hint{position:absolute;z-index:3;left:2rem;top:50%;transform:translateY(-50%);font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.8}
 
 /* booking bar */
-.booking-bar{position:absolute;z-index:4;left:50%;bottom:0;transform:translate(-50%,50%);width:min(100% - 3rem,980px);background:#fff;color:var(--ink);display:grid;grid-template-columns:repeat(3,1fr) auto;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+.booking-bar{position:absolute;z-index:4;left:50%;bottom:2.5rem;transform:translateX(-50%);width:min(100% - 3rem,980px);background:rgba(255,255,255,.97);color:var(--ink);display:grid;grid-template-columns:repeat(3,1fr) auto;box-shadow:0 24px 60px rgba(0,0,0,.28);border-top:2px solid var(--gold);text-align:left}
 .booking-bar label{display:block;padding:1.1rem 1.4rem;border-right:1px solid var(--line);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .booking-bar input,.booking-bar select{display:block;width:100%;border:0;padding:.3rem 0 0;font:500 1rem var(--sans);color:var(--ink);background:transparent;outline-offset:6px}
 .booking-bar .btn{height:100%;padding-inline:2.2rem}
-.after-hero{padding-top:clamp(7rem,12vw,10rem)}
+/* extra premium details */
+::selection{background:var(--gold);color:#fff}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:300}
+h2 em,h3 em{font-style:italic;color:var(--gold)}
+.hero h1 em{font-style:italic;color:#e6d3b1}
+.trust{border-bottom:1px solid var(--line);padding:1.7rem 0;background:#fff}
+.trust ul{list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem 2rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.trust strong{color:var(--ink);font-family:var(--serif);font-size:1.4rem;letter-spacing:0;margin-right:.45rem;font-weight:500;vertical-align:-.1em}
+.btn::after{content:"→";font-size:1rem;letter-spacing:0;transition:transform .25s}
+.btn:hover::after{transform:translateX(4px)}
+.site-header .btn::after,.lb-btn::after,.hero-dots button::after,.booking-bar .btn::after{content:none}
+.split-img.reveal img{clip-path:inset(0 0 100% 0);transition:clip-path 1.4s cubic-bezier(.2,.7,.1,1)}
+.split-img.reveal.in img{clip-path:inset(0)}
+.mobile-cta{display:none}
 
 /* ==========================================================
    6. ABOUT / INTRO
@@ -251,10 +264,10 @@ tbody th{font-family:var(--serif);font-size:1.25rem;font-weight:500}
 .contact-list li{padding:.85rem 0;border-bottom:1px solid var(--line);display:flex;gap:1rem;flex-wrap:wrap}
 .contact-list strong{min-width:120px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:.25rem}
 .contact-actions{display:flex;flex-wrap:wrap;gap:.8rem}
-form{background:#fff;padding:clamp(1.5rem,3vw,2.6rem);border:1px solid var(--line)}
-form label{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.35rem}
-form input,form textarea,form select{width:100%;font:inherit;padding:.8rem 0;border:0;border-bottom:1px solid #cfcac0;margin-bottom:1.4rem;background:transparent;border-radius:0}
-form input:focus,form textarea:focus,form select:focus{outline:0;border-bottom-color:var(--ink)}
+#bookingForm{background:#fff;padding:clamp(1.5rem,3vw,2.6rem);border:1px solid var(--line)}
+#bookingForm label{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.35rem}
+#bookingForm input,#bookingForm textarea,#bookingForm select{width:100%;font:inherit;padding:.8rem 0;border:0;border-bottom:1px solid #cfcac0;margin-bottom:1.4rem;background:transparent;border-radius:0}
+#bookingForm input:focus,#bookingForm textarea:focus,#bookingForm select:focus{outline:0;border-bottom-color:var(--ink)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
 
 /* ==========================================================
@@ -286,11 +299,13 @@ footer a:hover{color:#fff}
   .amenity-grid{grid-template-columns:repeat(2,1fr)}
   .exp-grid,.quotes{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .booking-bar{grid-template-columns:1fr 1fr}
+  .booking-bar{grid-template-columns:repeat(3,1fr)}
+  .booking-bar label{border-bottom:1px solid var(--line)}
+  .booking-bar label:nth-of-type(3){border-right:0}
   .booking-bar .btn{grid-column:1/-1;padding:1.2rem}
-  .hero{padding-bottom:13rem}
-  .hero-dots{bottom:13rem}
-  .after-hero{padding-top:clamp(11rem,18vw,13rem)}
+  .hero{padding-bottom:16rem}
+  .hero-dots{bottom:14.4rem}
+  .scroll-hint{display:none}
 }
 @media (max-width:860px){
   .menu-toggle{display:block}
@@ -309,23 +324,33 @@ footer a:hover{color:#fff}
   .exp{aspect-ratio:4/3}
   .stats{grid-template-columns:1fr 1fr 1fr;gap:.8rem}
   .stats strong{font-size:2rem}
-  .booking-bar{grid-template-columns:1fr}
-  .booking-bar label{border-right:0;border-bottom:1px solid var(--line)}
-  .hero{padding-bottom:20rem}
-  .hero-dots{bottom:20rem}
-  .after-hero{padding-top:20rem}
+  .booking-bar{grid-template-columns:1fr 1fr;bottom:1.2rem;width:min(100% - 1.6rem,980px)}
+  .booking-bar label{padding:.9rem 1.1rem}
+  .booking-bar label:nth-of-type(3){grid-column:1/-1;border-right:0}
+  .hero{padding-bottom:18rem}
+  .hero-dots{bottom:16.6rem}
   .hero-actions .btn{width:100%}
+  .trust ul{justify-content:flex-start}
+  /* sticky bottom call-to-action on phones */
+  .wa-float{display:none}
+  .mobile-cta{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:180;background:#fff;box-shadow:0 -6px 24px rgba(0,0,0,.12);transform:translateY(110%);transition:transform .35s}
+  .mobile-cta.show{transform:none}
+  .mobile-cta .btn{padding:1.05rem .6rem;border-radius:0}
+  .mobile-cta .btn::after{content:none}
+  footer{padding-bottom:5.5rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
+  .split-img.reveal img{clip-path:none}
 }
 </style>
 </head>
 
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- ================= HEADER / STICKY NAV ================= -->
 <header class="site-header" id="siteHeader">
@@ -357,7 +382,7 @@ footer a:hover{color:#fff}
   </div>
   <div class="container hero-content">
     <span class="eyebrow" style="color:#e6d3b1">Boutique stay · Your City</span>
-    <h1>A quieter way<br>to stay.</h1>
+    <h1>A quieter way<br><em>to stay.</em></h1>
     <p>Considered rooms, calm spaces and a warm welcome. Book direct for the best rate and a personal reply.</p>
     <div class="hero-actions">
       <a class="btn btn-light" href="#contact">Book Now</a>
@@ -381,8 +406,20 @@ footer a:hover{color:#fff}
   </form>
 </section>
 
+<!-- ================= TRUST STRIP ================= -->
+<div class="trust" aria-label="Why book direct">
+  <div class="container">
+    <ul>
+      <li><strong>4.9</strong>Guest rating</li>
+      <li>Best rate guaranteed</li>
+      <li>Free cancellation</li>
+      <li>Breakfast included</li>
+    </ul>
+  </div>
+</div>
+
 <!-- ================= ABOUT ================= -->
-<section id="about" class="after-hero" aria-labelledby="about-title">
+<section id="about" aria-labelledby="about-title">
   <div class="container split">
     <div class="split-img reveal">
       <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=70" alt="Calm bedroom with natural light and white linen">
@@ -651,6 +688,12 @@ footer a:hover{color:#fff}
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.1c0-5.4 4.4-9.8 9.9-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.8 9.8z"/></svg>
 </a>
 
+<!-- Sticky call-to-action bar (phones only) -->
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn" href="#contact">Book Now</a>
+  <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
   <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
@@ -696,7 +739,13 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 /* ---------- Sticky nav: transparent on hero, white after scrolling ---------- */
 const header = document.getElementById("siteHeader");
-const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+const progress = document.getElementById("progress"), mcta = document.getElementById("mobileCta");
+const onScroll = () => {
+  const y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+  header.classList.toggle("scrolled", y > 40);
+  progress.style.width = (max > 0 ? y / max * 100 : 0) + "%";   // thin gold reading-progress bar
+  mcta.classList.toggle("show", y > innerHeight * .6);          // phone CTA appears after the hero
+};
 onScroll(); addEventListener("scroll", onScroll, { passive: true });
 
 /* ---------- Mobile menu ---------- */
